@@ -21,7 +21,7 @@ class CategoriaController extends Controller
      */
     public function create()
     {
-        //
+        return view('categoria.categoria_create');
     }
 
     /**
@@ -29,7 +29,9 @@ class CategoriaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'nome' => 'required|min:5',
+        ]);
     }
 
     /**
@@ -37,7 +39,9 @@ class CategoriaController extends Controller
      */
     public function show(string $id)
     {
-        //
+        //dd('show: ' . $id);
+        $categoria = Categoria::find($id);
+        return view ('categoria.categoria_show', compact('categoria'));
     }
 
     /**

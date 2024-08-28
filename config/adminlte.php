@@ -331,7 +331,7 @@ return [
         [
             'text' => 'Categoria',
             'url' => 'categoria',
-            'icon' => 'fas fa-fw fa-user',
+            'icon' => 'fas fa-fw fa-tags',
         ],
         [
             'text' => 'change_password',
