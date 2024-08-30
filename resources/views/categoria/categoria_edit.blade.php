@@ -17,12 +17,13 @@
     </div>
 @endif
 
-                <form method="POST" action="{{ url('/categoria') }}">
+                <form method="POST" action="{{ url('/categoria/' . $categoria->id) }}">
+                    @method('PUT')
                     @csrf
 
                 <div class="mb-3">
                     <label for="fname" class="form-label">Nome</label>
-                    <input type="text" name="nome" class="form-control" placeholder="Digite o nome da categoria:">
+                    <input type="text" name="nome" value="{{ $categoria->nome }}" class="form-control" placeholder="Digite o nome da categoria:">
                     <input type="submit" value="Enviar">
                   </div>
 
