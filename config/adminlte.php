@@ -334,6 +334,11 @@ return [
             'icon' => 'fas fa-fw fa-tags',
         ],
         [
+            'text' => 'Postagem',
+            'url' => 'postagem',
+            'icon' => 'fas fa-fw fa-box',
+        ],
+        [
             'text' => 'change_password',
             'url' => 'admin/settings',
             'icon' => 'fas fa-fw fa-lock',

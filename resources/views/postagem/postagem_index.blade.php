@@ -23,21 +23,21 @@
                <table>
     <tr>
       <th>ID</th>
-      <th>Nome</th>
+      <th>Titulo</th>
       <th style="text-align:center">Ações</th>
     </tr>
 
-    @foreach ($categorias as $value)
+    @foreach ($postagens as $value)
 
     <tr>
       <td>{{$value->id}}</td>
-      <td>{{$value->nome}}</td>
+      <td>{{$value->titulo}}</td>
       <td style="display: flex; justify-content:center; align-itens:center">
-        <a href="{{ url('/categoria/' . $value->id) }}" class="btn btn-primary">Visualizar</a>
+        <a href="{{ url('/postagem/' . $value->id) }}" class="btn btn-primary">Visualizar</a>
 
-        <a href="{{ url('/categoria/' . $value->id . '/edit') }}" class="btn btn-warning">Editar</a>
+        <a href="{{ url('/postagem/' . $value->id . '/edit') }}" class="btn btn-warning">Editar</a>
 
-        <form method="POST" action='{{ url ('/categoria/' . $value->id) }}' onsubmit ="return ConfirmDelete()">
+        <form method="POST" action='{{ url ('/postagem/' . $value->id) }}' onsubmit ="return ConfirmDelete()">
             @method('DELETE')
             @csrf
             <input type="submit" class="btn btn-danger" value="Excluir">
@@ -47,7 +47,7 @@
     @endforeach
   </table>
 
-  <a href="{{ url('/categoria/create') }}" class="btn btn-success">Criar</a>
+  <a href="{{ url('/postagem/create') }}" class="btn btn-success">Criar</a>
 
                 </div>
             </div>
