@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Postagem;
 use App\Models\Categoria;
+use Illuminate\Support\Facades\Auth;
 
 class PostagemController extends Controller
 {
@@ -32,11 +33,16 @@ class PostagemController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
+            'categoria_id' => 'required',
             'titulo' => 'required|min:5',
+            'conteudo' => 'required|min:5',
         ]);
 
         $postagem = new Postagem();
-        $postagem->titulo = $request->nome;
+        $postagem->categoria_id = $request->categoria_id;
+        $postagem->user_id = Auth::id();
+        $postagem->titulo = $request->titulo;
+        $postagem->conteudo = $request->conteudo;
         $postagem->save();
 
         return redirect()->route('postagem.index')->with('mensagem', 'Postagem Cadastrada Com Sucesso!');
@@ -58,8 +64,9 @@ class PostagemController extends Controller
      */
     public function edit(string $id)
     {
+        $categorias = Categoria::orderBy('nome', 'ASC')->get();
         $postagem = Postagem::find($id);
-        return view('postagem.postagem_edit', compact('postagem'));
+        return view('postagem.postagem_edit', compact('postagem', 'categorias'));
     }
 
     /**

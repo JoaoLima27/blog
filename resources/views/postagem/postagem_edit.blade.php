@@ -21,12 +21,22 @@
                     @method('PUT')
                     @csrf
 
+                    <label for="cars">Escolha uma categoria:</label><br>
+
+                    <select name="categoria_id" class="form-control" id="cars">
+
+                    @foreach($categorias as $value)
+                    <option value="{{ $value->id }}">{{ $value->nome }}</option>
+                    @endforeach
+
+                    </select>
+
                 <div class="mb-3">
                     <label for="fname" class="form-label">Titulo</label>
                     <input type="text" name="titulo" value="{{ $postagem->titulo }}" class="form-control" placeholder="Digite o nome da postagem:">
 
                     <label for="fname" class="form-label">Conteudo</label>
-                    <input type="text" name="conteudo" value="{{ $postagem->conteudo }}" class="form-control" placeholder="Digite o nome da postagem:">
+                    <textarea  id="conteudo" class="form-control" name="conteudo" cols="30" rows="10">{{ $postagem->conteudo }}</textarea>
 
                     <input type="submit" value="Enviar">
                   </div>

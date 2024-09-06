@@ -23,6 +23,7 @@
                <table>
     <tr>
       <th>ID</th>
+      <th>Categoria</th>
       <th>Titulo</th>
       <th style="text-align:center">Ações</th>
     </tr>
@@ -31,6 +32,7 @@
 
     <tr>
       <td>{{$value->id}}</td>
+      <td>{{$value->categoria->nome}}</td>
       <td>{{$value->titulo}}</td>
       <td style="display: flex; justify-content:center; align-itens:center">
         <a href="{{ url('/postagem/' . $value->id) }}" class="btn btn-primary">Visualizar</a>
