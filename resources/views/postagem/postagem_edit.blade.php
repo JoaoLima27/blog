@@ -2,6 +2,11 @@
 
 @section('content')
 <div class="container">
+
+    <link rel="stylesheet" href="{{ url('/richtexteditor/rte_theme_default.css') }}"/>
+<script type="text/javascript" src="{{ url('/richtexteditor/rte.js') }}"></script>
+<script type="text/javascript" src="{{ url('/richtexteditor/plugins/all_plugins.js') }}"></script>
+
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -46,12 +51,16 @@
                     <input type="text" name="titulo" value="{{ $postagem->titulo }}" class="form-control" placeholder="Digite o nome da postagem:">
 
                     <label for="fname" class="form-label">Conteudo</label>
-                    <textarea  id="conteudo" class="form-control" name="conteudo" cols="30" rows="10">{{ $postagem->conteudo }}</textarea>
+                    <textarea  id="inp_editor1" class="form-control" name="conteudo" cols="30" rows="10">{{ $postagem->conteudo }}</textarea>
 
                     <input type="submit" value="Enviar">
                   </div>
 
                   </form>
+
+                  <script>
+                    var editor1 = new RichTextEditor("#inp_editor1");
+                </script>
 
                 </div>
             </div>
