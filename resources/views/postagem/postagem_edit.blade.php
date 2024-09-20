@@ -22,7 +22,7 @@
     </div>
 @endif
 
-                <form method="POST" action="{{ url('/postagem/' . $postagem->id) }}">
+                <form method="POST" action="{{ url('/postagem/' . $postagem->id) }}" enctype="multipart/form-data">
                     @method('PUT')
                     @csrf
 
@@ -45,6 +45,9 @@
                     @endforeach
 
                     </select>
+
+                    <label>Imagem</label>
+                    <input type="file" name="imagem" class="form-control">
 
                 <div class="mb-3">
                     <label for="fname" class="form-label">Titulo</label>

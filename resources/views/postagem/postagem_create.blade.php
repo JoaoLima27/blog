@@ -21,7 +21,7 @@
     </div>
 @endif
 
-                <form method="POST" action="{{ url('/postagem') }}">
+                <form method="POST" action="{{ url('/postagem') }}" enctype="multipart/form-data">
                     @csrf
 
                 <div class="mb-3">
@@ -35,6 +35,9 @@
                     @endforeach
 
                     </select>
+
+                    <label>Imagem</label>
+                    <input type="file" name="imagem" class="form-control">
 
                     <label for="fname" class="form-label">Titulo</label>
                     <input type="text" name="titulo" class="form-control" placeholder="Digite o nome da postagem:">
