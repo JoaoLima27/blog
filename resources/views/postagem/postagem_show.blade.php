@@ -12,7 +12,7 @@
                <p><strong>Conteudo:</strong>{!! $postagem->conteudo !!}</p>
                <p><strong>Autor:</strong>{{ $postagem->autor->name}}</p>
                <p><strong>Criação:</strong>{{ $postagem->created_at }}</p>
-               <p><strong>Imagem:</strong>  <img src="data:image/png;base64, {{ $postagem->imagem }}" alt="Imagem" /></p>
+               <p><strong>Imagem:</strong> <img src="data:image/png;base64, {{ $postagem->imagem }}" alt="Imagem" /></p>
 
                 </div>
             </div>
