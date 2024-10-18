@@ -20,6 +20,8 @@ Route::get('/feed/autor', [FeedController::class, 'autor'])->name('feed.autor');
 
 Route::get('/feed/autor/{id}', [FeedController::class, 'autorById'])->name('feed.autorById');
 
+Route::get('/feed/postagem/{id}/comentario', [FeedController::class, 'comentario'])->name('comentario');
+
 Auth::routes();
 
 Route::middleware(['auth'])->group(function () {
