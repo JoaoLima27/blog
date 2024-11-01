@@ -5,6 +5,7 @@ use App\Http\Controllers\FuncionarioController;
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\PostagemController;
 use App\Http\Controllers\FeedController;
+use App\Http\Controllers\ComentarioController;
 
 //Route::get('/', function () {
     //return view('welcome');
@@ -22,6 +23,8 @@ Route::get('/feed/autor/{id}', [FeedController::class, 'autorById'])->name('feed
 
 Route::get('/feed/postagem/{id}/comentario', [FeedController::class, 'comentario'])->name('comentario');
 
+Route::post('comentario', [ComentarioController::class, 'store'])->name('comentario.store');
+
 Auth::routes();
 
 Route::middleware(['auth'])->group(function () {
@@ -32,7 +35,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/funcionario', [FuncionarioController::class, 'index']);
 
     //Categoria
-    Route::get('/categoria', [CategoriaController::class, 'index'])->name('categoria.index');
+
+    Route::middleware(['can:is_admin'])->group(function () {
+
+    Route::get('/categoria', [CategoriaController::class, 'index'])->middleware('can:is_admin')->name('categoria.index');
 
     Route::get('/categoria/create', [CategoriaController::class,'create'])->name('categoria.create');
 
@@ -45,6 +51,7 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/categoria/{id}', [CategoriaController::class,'update'])->name('categoria.update');
 
     route::delete('/categoria/{id}', [CategoriaController::class, 'destroy'])->name('categoria.destroy');
+    });
 
 
     //Postagem

@@ -332,6 +332,7 @@ return [
             'text' => 'Categoria',
             'url' => 'categoria',
             'icon' => 'fas fa-fw fa-tags',
+            'can' => 'is_admin',
         ],
         [
             'text' => 'Postagem',
