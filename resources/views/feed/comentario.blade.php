@@ -4,6 +4,7 @@
 
 <p>{{ $postagem->titulo }}</p>
 
+@auth
 <form method="POST" action="{{ url('/comentario') }}">
     @csrf
 
@@ -17,6 +18,7 @@
   <input type="submit" value="Enviar">
 
   </form>
+  @endauth
 
 @foreach ($postagem->comentarios as $value )
     <p>{{ $value->conteudo }}</p>
