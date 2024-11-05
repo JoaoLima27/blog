@@ -59,4 +59,9 @@ class FeedController extends Controller
       return back()->withInput();
 
     }
+
+    public function denunciarPostagem($id){
+        $postagem = Postagem::find($id);
+        return view('feed.denunciarPostagem', compact('postagem'));
+    }
 }

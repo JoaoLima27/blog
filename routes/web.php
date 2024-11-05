@@ -27,6 +27,8 @@ Route::post('comentario', [ComentarioController::class, 'store'])->name('comenta
 
 Route::get('/feed/curtida/{id}', [FeedController::class, 'curtida'])->middleware('auth')->name('curtida');
 
+Route::get('/feed/denunciarPostagem/{id}', [FeedController::class, 'denunciarPostagem'])->middleware('auth')->name('denunciarpostagem');
+
 Auth::routes();
 
 Route::middleware(['auth'])->group(function () {
