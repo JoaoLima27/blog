@@ -27,11 +27,15 @@ Route::post('comentario', [ComentarioController::class, 'store'])->name('comenta
 
 Route::get('/feed/curtida/{id}', [FeedController::class, 'curtida'])->middleware('auth')->name('curtida');
 
-Route::get('/feed/denunciarPostagem/{id}', [FeedController::class, 'denunciarPostagem'])->middleware('auth')->name('denunciarpostagem');
+Route::get('/feed/denunciarpostagem/{id}', [FeedController::class, 'denunciarPostagem'])->middleware('auth')->name('denunciarpostagem');
+
+Route::post('/feed/denunciarpostagem', [FeedController::class, 'denunciarPostagemStore'])->middleware('auth')->name('denunciarPostagem.store');
 
 Auth::routes();
 
 Route::middleware(['auth'])->group(function () {
+
+    Route::get('ModeracaoDenunciaPostagem', [ModeracaoController::class, 'ModeracaoDenunciaPostagem'])->name('ModeracaoDenunciaPostagem');
 
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 

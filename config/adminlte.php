@@ -338,6 +338,12 @@ return [
             'text' => 'Postagem',
             'url' => 'postagem',
             'icon' => 'fas fa-fw fa-box',
+            'can' => 'is_admin',
+        ],
+        [
+            'text' => 'Moderação Denúncias De Postagem',
+            'url' => 'ModeracaoDenunciaPostagem',
+            'icon' => 'fas fa-fw fa-tags',
         ],
         [
             'text' => 'change_password',

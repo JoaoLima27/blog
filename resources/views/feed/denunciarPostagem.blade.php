@@ -5,7 +5,7 @@
 <p>{{ $postagem->titulo }}</p>
 
 @auth
-<form method="POST" action="{{ url('/denunciarPostagem') }}">
+<form method="POST" action="{{ url('/feed/denunciarpostagem') }}">
     @csrf
 
 <div class="mb-3">
