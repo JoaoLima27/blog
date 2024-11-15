@@ -33,10 +33,11 @@
       <td>{{$value->postagem->autor->name}}</td>
       <td>{{$value->denunciante->name}}</td>
       <td>{{$value->conteudo}}</td>
+      <td>{{$value->status}}</td>
+
       <td style="display: flex; justify-content:center; align-itens:center">
         <a href="{{ url('/ModeracaoDenunciaPostagemAceito/' . $value->id) }}" class="btn btn-primary">ACEITO</a>
-
-        <a href="{{ url('/categoria/' . $value->id . '/edit') }}" class="btn btn-warning">Editar</a>
+        <a href="{{ url('/ModeracaoDenunciaPostagemNegado/' . $value->id) }}" class="btn btn-danger">NEGADO</a>
 
       </td>
     </tr>

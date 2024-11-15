@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\DenunciarPostagem;
+use App\Models\Postagem;
 
 class ModeracaoController extends Controller
 {
@@ -13,7 +14,7 @@ class ModeracaoController extends Controller
     }
 
     public function ModeracaoDenunciaPostagemAceito($id){
-        $denunciaPostagem = DenunciaPostagem::find($id);
+        $denunciaPostagem = DenunciarPostagem::find($id);
         $denunciaPostagem->status = 'ACEITO';
         $denunciaPostagem->save();
 
@@ -22,5 +23,13 @@ class ModeracaoController extends Controller
         $postagem->save();
 
         return redirect()->route('ModeracaoDenunciaPostagem')->with('mensagem', 'Denúncia Aceita Com Sucesso!');
+    }
+
+    public function ModeracaoDenunciaPostagemNegado($id){
+        $denunciaPostagem = DenunciarPostagem::find($id);
+        $denunciaPostagem->status = 'NEGADO';
+        $denunciaPostagem->save();
+
+        return redirect()->route('ModeracaoDenunciaPostagem')->with('mensagem', 'Denúncia Negada Com Sucesso!');
     }
 }
